@@ -1,7 +1,9 @@
 package me.FrancoisduBois;
 
+import me.FrancoisduBois.listeners.MoveListener;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
+import org.bukkit.entity.Chicken;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -17,6 +19,8 @@ public class Main extends JavaPlugin {
     public void onEnable(){
         main = this;
         System.out.println("MobWars wird gestratet");
+
+        new MoveListener();
     }
 
     public int minplayers = 3;
@@ -38,5 +42,7 @@ public class Main extends JavaPlugin {
     public void playPlayerSound(Player p, Sound sound, float f1, float f2){
         p.playSound(p.getLocation(), sound, f1, f2);
     }
+
+    public Chicken chicken;
 
 }

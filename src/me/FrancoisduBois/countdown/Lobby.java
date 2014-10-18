@@ -2,6 +2,7 @@ package me.FrancoisduBois.countdown;
 
 import me.FrancoisduBois.GameState;
 import me.FrancoisduBois.Main;
+import me.FrancoisduBois.listeners.itemListeners.Guns;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -15,6 +16,8 @@ public class Lobby {
     public int count;
 
     Spawn spawn = new Spawn();
+
+    Guns g = new Guns();
 
     public void CountDown(int length){
 
@@ -42,10 +45,12 @@ public class Lobby {
                             for(Player all : Bukkit.getOnlinePlayers()){
                                 all.setHealth(20.0);
                                 all.setFoodLevel(20);
+                                all.getInventory().addItem(g.ChickenGun());
                             }
                             Main.getInstance().gs = GameState.Spawn;
                             System.out.println("-----Spawn-----");
                             spawn.CountDown(15);
+
                         }
                     }
                 }
