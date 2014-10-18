@@ -30,7 +30,6 @@ public class ItemInteract implements Listener {
         Player p = e.getPlayer();
         if(e.getAction() == Action.RIGHT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_AIR){
             if(p.getInventory().getItemInHand().equals(guns.ChickenGun())){
-              p.getWorld().spawnEntity(p.getEyeLocation(), EntityType.CHICKEN);
             }
         }
     }
