@@ -31,7 +31,7 @@ public class Lobby {
                         if(Count != 0){
                             Count--;
                         }
-                        if(Count==50||Count==40||Count==30||Count==20||Count==15||Count==10||Count==5||Count==4||Count==0||
+                        if(Count==50||Count==40||Count==30||Count==20||Count==15||Count==10||Count==5||Count==4||Count==3||
                                 Count==2){
                             Bukkit.broadcastMessage(Main.getInstance().pr+"Die Runde beginnt in "+Count+" Sekunden");
                             Main.getInstance().playAllSound(Sound.CLICK, 50F, 50F);
@@ -40,6 +40,7 @@ public class Lobby {
                             Main.getInstance().playAllSound(Sound.CLICK, 50F, 50F);
                         }else if(Count==0){
                             Bukkit.broadcastMessage(Main.getInstance().pr+"Die Runde beginnt jetzt");
+                            Bukkit.getScheduler().cancelAllTasks();
                             Main.getInstance().playAllSound(Sound.BLAZE_HIT, 60F, 60F);
                             //TODO Teleport
                             for(Player all : Bukkit.getOnlinePlayers()){
