@@ -26,15 +26,16 @@ public class Spawn {
                     }
                     if(Count==15||Count==10||Count==5||Count==4||Count==3||
                             Count==2){
-                        Bukkit.broadcastMessage("Das Spiel beginnt in"+Count+" Sekunden");
+                        Bukkit.broadcastMessage("Das Spiel beginnt in "+Count+" Sekunden");
                         Main.getInstance().playAllSound(Sound.NOTE_PIANO, 50F, 50F);
                     }else if(Count ==1){
-
+                        Bukkit.broadcastMessage(Main.getInstance().pr+"Das Spiel beginnt in "+Count+" Sekunde");
+                    }else if(Count==0){
+                        Bukkit.broadcastMessage(Main.getInstance().pr+"Das Spiel beginnt jetzt");
+                        Main.getInstance().gs = GameState.In_Game;
                     }
                 }
             }, 0L, 20L);
         }
-
     }
-
 }
