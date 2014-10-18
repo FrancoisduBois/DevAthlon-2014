@@ -2,6 +2,7 @@ package me.FrancoisduBois.listeners.itemListeners;
 
 import me.FrancoisduBois.Main;
 import org.bukkit.Bukkit;
+import org.bukkit.Effect;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Chicken;
@@ -24,14 +25,28 @@ public class ItemInteract implements Listener {
     }
     Guns guns = new Guns();
 
-
     @EventHandler
     public void onClick(PlayerInteractEvent e){
         Player p = e.getPlayer();
         if(e.getAction() == Action.RIGHT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_AIR){
             if(p.getInventory().getItemInHand().equals(guns.ChickenGun())){
+                p.getWorld().spawnEntity(p.getEyeLocation(), EntityType.CHICKEN);
+                    for(final Entity ent : p.getNearbyEntities(1,1,1)) {
+                        if (ent instanceof Chicken) {
+                            ent.setVelocity(p.getLocation().getDirection().multiply(3.0));
+                            p.sendMessage("test");
+                            Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstance(), new Runnable() {
+                                @Override
+                                public void run() {
+
+                                    ent.getWorld().createExplosion(ent.getLocation(), 5F, false);
+                                }
+                            }, 20*4L);
+                        }
+                    }
+                }
             }
         }
     }
 
-}
+

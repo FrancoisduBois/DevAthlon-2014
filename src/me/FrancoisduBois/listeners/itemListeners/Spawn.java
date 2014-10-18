@@ -13,11 +13,4 @@ public class Spawn implements Listener {
 
 
 
-    @EventHandler
-    public void onSpawn(CreatureSpawnEvent e){
-        if(e.getEntity() instanceof Chicken){
-            Main.getInstance().chicken = (Chicken) e.getEntity();
-        }
-    }
-
 }
