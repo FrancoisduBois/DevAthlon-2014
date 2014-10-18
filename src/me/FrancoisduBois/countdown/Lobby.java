@@ -48,7 +48,7 @@ public class Lobby {
                                 all.getInventory().addItem(g.ChickenGun());
                             }
                             Main.getInstance().gs = GameState.Spawn;
-                            System.out.println("-----Spawn-----");
+                            System.out.println("-----Spawn----");
                             spawn.CountDown(15);
 
                         }
